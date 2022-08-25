@@ -42,8 +42,6 @@ func (c Config) Log() []byte {
 
 	}
 
-	c.Build = fmt.Append(c.Build, "\n")
-
 	return c.Build
 
 }
