@@ -50,7 +50,7 @@ We color the log kinds so that you can differentiate them immediately, so `error
 If you want to map to other kinds of colors, you can store them in the convert map. Please note that the default values will be overwritten. These look like this:
 
 ```go
-convert = map[string]string{
+map[string]string{
     "default": "cyan",
     "error":   "red",
     "warning": "yellow",
