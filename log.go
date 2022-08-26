@@ -32,11 +32,10 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 		_, file, line, ok := runtime.Caller(1)
 		if ok {
 			attributes["file"] = fmt.Sprintf("%s:%d", filepath.Base(file), line)
-			c.build.Attributes = attributes
 		}
-	} else {
-		c.build.Attributes = attributes
 	}
+
+	c.build.Attributes = attributes
 
 	color = convert[kind]
 	if reflect.ValueOf(color).Len() == 0 {
