@@ -52,6 +52,7 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 
 	if c.File {
 		c.build.Color = false
+		c.file.Time = c.build.Timestamp
 		c.file.Path = c.Path
 		log := c.build.Log()
 		err := c.file.Write(log)
