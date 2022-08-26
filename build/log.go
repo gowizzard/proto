@@ -18,7 +18,7 @@ func (c Config) Log() []byte {
 		c.Kind = color
 	}
 
-	c.Kind = fmt.Sprintf("%s[%s]", c.Kind, c.Timestamp.Format("2006-01-02T15:04:05"))
+	c.Kind = fmt.Sprintf("%s[%s]", c.Kind, c.Time.Format("2006-01-02T15:04:05"))
 
 	c.Build = fmt.Appendf(c.Build, "%-*s", len(c.Kind)+2, c.Kind)
 	c.Build = fmt.Append(c.Build, c.Message)
