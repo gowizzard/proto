@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"time"
 )
 
 // Write is to save the log to log file
@@ -14,13 +13,13 @@ func (c Config) Write(log []byte) error {
 
 	log = fmt.Append(log, "\n")
 
-	c.Path = filepath.Join(c.Path, time.Now().Format("2006-01"))
+	c.Path = filepath.Join(c.Path, c.Time.Format("2006-01"))
 	err := os.MkdirAll(c.Path, 0750)
 	if err != nil {
 		return err
 	}
 
-	c.Name = time.Now().Format("2006-01-02") + ".log"
+	c.Name = c.Time.Format("2006-01-02") + ".log"
 	c.Path = filepath.Join(c.Path, c.Name)
 
 	file, _ := os.ReadFile(c.Path)
