@@ -9,7 +9,7 @@ import (
 )
 
 // TestWrite is to test the write function
-// With table driven tests
+// With table driven tests and temporary directory for file testing
 func TestWrite(t *testing.T) {
 
 	tests := []struct {

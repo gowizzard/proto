@@ -7,7 +7,7 @@ import (
 )
 
 // TestLog is to test the logging function
-// With table driven testing
+// With table driven testing and temporary directory for file testing
 func TestLog(t *testing.T) {
 
 	tests := []struct {
