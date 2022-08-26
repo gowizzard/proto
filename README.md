@@ -20,10 +20,13 @@ Here you can find an example how to use the library:
 
 ```go
 c := proto.Config{
-    FileInformation: true,
-    CommandLine:     false,
-    File:            true,
-    Path:            "/var/log/proto",
+    Information:    true,
+	Convert: &map[string]string{
+        "custom": "purple",
+    },
+    CommandLine:    false,
+    File:           true,
+    Path:           "/var/log/proto",
 } 
 
 err := c.Log("error", "this is the error message", map[string]any{})
