@@ -49,7 +49,6 @@ func TestWrite(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-
 		t.Log(string(read))
 
 	}
