@@ -9,7 +9,7 @@ import (
 // And save data for other packages
 type Config struct {
 	Kind       string
-	Timestamp  time.Time
+	Time       time.Time
 	Message    string
 	Attributes map[string]any
 	Color      bool

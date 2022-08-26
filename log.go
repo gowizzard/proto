@@ -25,7 +25,7 @@ var (
 func (c Config) Log(kind, message string, attributes map[string]any) error {
 
 	c.build.Kind = kind
-	c.build.Timestamp = time.Now()
+	c.build.Time = time.Now()
 	c.build.Message = message
 
 	if c.Information {
@@ -48,20 +48,27 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	c.build.Dye.Color = color
 
 	if c.CommandLine {
+
 		c.build.Color = true
+
 		log := c.build.Log()
 		command_line.Print(log)
+
 	}
 
 	if c.File {
+
 		c.build.Color = false
-		c.file.Time = c.build.Timestamp
+
+		c.file.Time = c.build.Time
 		c.file.Path = c.Path
+
 		log := c.build.Log()
 		err := c.file.Write(log)
 		if err != nil {
 			return err
 		}
+
 	}
 
 	return nil
