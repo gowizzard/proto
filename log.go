@@ -1,8 +1,11 @@
 package proto
 
 import (
+	"fmt"
 	"github.com/gowizzard/proto/command_line"
+	"path/filepath"
 	"reflect"
+	"runtime"
 	"time"
 )
 
@@ -24,7 +27,16 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	c.build.Kind = kind
 	c.build.Timestamp = time.Now()
 	c.build.Message = message
-	c.build.Attributes = attributes
+
+	if c.FileInformation {
+		_, file, line, ok := runtime.Caller(1)
+		if ok {
+			attributes["file"] = fmt.Sprintf("%s:%d", filepath.Base(file), line)
+			c.build.Attributes = attributes
+		}
+	} else {
+		c.build.Attributes = attributes
+	}
 
 	color = convert[kind]
 	if reflect.ValueOf(color).Len() == 0 {
@@ -32,14 +44,16 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	}
 	c.build.Dye.Color = color
 
-	log := c.build.Log()
-
 	if c.CommandLine {
+		c.build.Color = true
+		log := c.build.Log()
 		command_line.Print(log)
 	}
 
 	if c.File {
+		c.build.Color = false
 		c.file.Path = c.Path
+		log := c.build.Log()
 		err := c.file.Write(log)
 		if err != nil {
 			return err
