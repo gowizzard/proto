@@ -20,9 +20,9 @@ Here you can find an example how to use the library:
 
 ```go
 c := proto.Config{
-    Information:    true,
-	Convert: &map[string]string{
-        "custom": "purple",
+    Information:    true, 
+    Convert: &map[string]string{
+        "error": "purple",
     },
     CommandLine:    false,
     File:           true,
