@@ -2,6 +2,7 @@ package proto_test
 
 import (
 	"github.com/gowizzard/proto"
+	"os"
 	"testing"
 )
 
@@ -32,6 +33,19 @@ func TestLog(t *testing.T) {
 			Message: "This is an error message.",
 			Attributes: map[string]any{
 				"error": "wrong type",
+			},
+		},
+		{
+			Config: proto.Config{
+				FileInformation: true,
+				CommandLine:     true,
+				File:            true,
+				Path:            os.TempDir(),
+			},
+			Kind:    "warning",
+			Message: "The buffer must be emptied.",
+			Attributes: map[string]any{
+				"storage": "95 percent occupied",
 			},
 		},
 	}
