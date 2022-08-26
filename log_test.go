@@ -26,8 +26,8 @@ func TestLog(t *testing.T) {
 		},
 		{
 			Config: proto.Config{
-				CommandLine:     true,
-				FileInformation: true,
+				CommandLine: true,
+				Information: true,
 			},
 			Kind:       "info",
 			Message:    "This is another informational message.",
@@ -35,8 +35,8 @@ func TestLog(t *testing.T) {
 		},
 		{
 			Config: proto.Config{
-				CommandLine:     true,
-				FileInformation: true,
+				CommandLine: true,
+				Information: true,
 			},
 			Kind:    "error",
 			Message: "This is an error message.",
@@ -46,16 +46,26 @@ func TestLog(t *testing.T) {
 		},
 		{
 			Config: proto.Config{
-				FileInformation: true,
-				CommandLine:     true,
-				File:            true,
-				Path:            os.TempDir(),
+				Information: true,
+				CommandLine: true,
+				File:        true,
+				Path:        os.TempDir(),
 			},
 			Kind:    "warning",
 			Message: "The buffer must be emptied.",
 			Attributes: map[string]any{
 				"storage": "95 percent occupied",
 			},
+		},
+		{
+			Config: proto.Config{
+				Convert: &map[string]string{
+					"custom": "purple",
+				},
+				CommandLine: true,
+			},
+			Kind:    "custom",
+			Message: "This is a custom message.",
 		},
 	}
 
