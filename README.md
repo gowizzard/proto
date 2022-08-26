@@ -47,6 +47,18 @@ INFO[2022-08-26T11:51:30]  This is a informational message.	FILE=log_test.go:65
 
 We color the log kinds so that you can differentiate them immediately, so `error` is shown as red and `warning` as yellow. Everything else is displayed in cyan.
 
+If you want to map to other kinds of colors, you can store them in the convert map. Please note that the default values will be overwritten. These look like this:
+
+```go
+convert = map[string]string{
+    "default": "cyan",
+    "error":   "red",
+    "warning": "yellow",
+}
+```
+
+You can use the following colors for your mapping: `red`, `green`, `yellow`, `blue`, `purple` & `cyan`.
+
 ## Special thanks
 
 Thanks to [JetBrains](https://github.com/JetBrains) for supporting me with this and other [open source projects](https://www.jetbrains.com/community/opensource/#support).
