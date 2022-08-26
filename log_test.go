@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+// TestLog is to test the logging function
+// With table driven testing
 func TestLog(t *testing.T) {
 
 	tests := []struct {
