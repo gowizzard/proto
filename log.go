@@ -28,7 +28,7 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	c.build.Timestamp = time.Now()
 	c.build.Message = message
 
-	if c.FileInformation {
+	if c.Information {
 		_, file, line, ok := runtime.Caller(1)
 		if ok {
 			attributes["file"] = fmt.Sprintf("%s:%d", filepath.Base(file), line)
@@ -36,6 +36,10 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	}
 
 	c.build.Attributes = attributes
+
+	if c.Convert != nil {
+		convert = *c.Convert
+	}
 
 	color = convert[kind]
 	if reflect.ValueOf(color).Len() == 0 {
