@@ -26,7 +26,7 @@ c := proto.Config{
     Path:            "/var/log/proto",
 } 
 
-err := c.Log("error", "this is the error message", map[string]any)
+err := c.Log("error", "this is the error message", map[string]any{})
 if err != nil {
     log.Fatal(err)
 }
