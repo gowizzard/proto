@@ -29,6 +29,15 @@ func TestLog(t *testing.T) {
 				CommandLine:     true,
 				FileInformation: true,
 			},
+			Kind:       "info",
+			Message:    "This is another informational message.",
+			Attributes: map[string]any{},
+		},
+		{
+			Config: proto.Config{
+				CommandLine:     true,
+				FileInformation: true,
+			},
 			Kind:    "error",
 			Message: "This is an error message.",
 			Attributes: map[string]any{
