@@ -30,16 +30,12 @@ func (c Config) Log() []byte {
 	sort.Strings(keys)
 
 	for _, value := range keys {
-
 		key := strings.ToUpper(value)
-
 		color = string(c.Dye.Execute(key))
 		if c.Color {
 			key = color
 		}
-
 		c.Build = fmt.Appendf(c.Build, "\t%s=%v", key, c.Attributes[value])
-
 	}
 
 	return c.Build
