@@ -13,11 +13,7 @@ import (
 // And convert the kind name to a color name
 var (
 	color   string
-	convert = map[string]string{
-		"default": "cyan",
-		"error":   "red",
-		"warning": "yellow",
-	}
+	convert = map[string]string{}
 )
 
 // Log ist to print the message to command line or file
@@ -36,7 +32,14 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 	}
 	c.build.Attributes = attributes
 
-	if c.Convert != nil {
+	switch c.Convert {
+	case nil:
+		convert = map[string]string{
+			"default": "cyan",
+			"error":   "red",
+			"warning": "yellow",
+		}
+	default:
 		convert = *c.Convert
 	}
 
