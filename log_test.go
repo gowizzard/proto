@@ -26,6 +26,16 @@ func TestLog(t *testing.T) {
 		},
 		{
 			Config: proto.Config{
+				Convert: &map[string]string{
+					"custom": "purple",
+				},
+				CommandLine: true,
+			},
+			Kind:    "custom",
+			Message: "This is a custom message.",
+		},
+		{
+			Config: proto.Config{
 				CommandLine: true,
 				Information: true,
 			},
@@ -56,16 +66,6 @@ func TestLog(t *testing.T) {
 			Attributes: map[string]any{
 				"storage": "95 percent occupied",
 			},
-		},
-		{
-			Config: proto.Config{
-				Convert: &map[string]string{
-					"custom": "purple",
-				},
-				CommandLine: true,
-			},
-			Kind:    "custom",
-			Message: "This is a custom message.",
 		},
 	}
 
