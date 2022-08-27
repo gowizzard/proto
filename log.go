@@ -34,7 +34,6 @@ func (c Config) Log(kind, message string, attributes map[string]any) error {
 			attributes["file"] = fmt.Sprintf("%s:%d", filepath.Base(file), line)
 		}
 	}
-
 	c.build.Attributes = attributes
 
 	if c.Convert != nil {
