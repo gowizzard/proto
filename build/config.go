@@ -10,7 +10,7 @@ import (
 type Config struct {
 	Kind       string
 	Time       time.Time
-	Message    string
+	Message    any
 	Attributes map[string]any
 	Color      bool
 	Dye        dye.Config
