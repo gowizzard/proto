@@ -18,7 +18,7 @@ var (
 
 // Log ist to print the message to command line or file
 // You can use the config struct to filter data and change the functionality
-func (c Config) Log(kind, message string, attributes map[string]any) error {
+func (c Config) Log(kind string, message any, attributes map[string]any) error {
 
 	c.build.Kind = kind
 	c.build.Time = time.Now()

@@ -1,6 +1,7 @@
 package build_test
 
 import (
+	"errors"
 	"github.com/gowizzard/proto/build"
 	"github.com/gowizzard/proto/dye"
 	"testing"
@@ -14,7 +15,7 @@ func TestLog(t *testing.T) {
 	tests := []struct {
 		Kind       string
 		Time       time.Time
-		Message    string
+		Message    any
 		Attributes map[string]any
 		Color      bool
 		Dye        dye.Config
@@ -54,7 +55,7 @@ func TestLog(t *testing.T) {
 		{
 			Kind:    "error",
 			Time:    time.Now(),
-			Message: "This is an error message.",
+			Message: errors.New("this is an error message"),
 			Attributes: map[string]any{
 				"error": "wrong type",
 			},
