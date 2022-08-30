@@ -57,6 +57,7 @@ func TestLog(t *testing.T) {
 		{
 			Config: proto.Config{
 				Information: true,
+				Monthly:     true,
 				CommandLine: true,
 				File:        true,
 				Path:        os.TempDir(),
