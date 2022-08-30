@@ -63,6 +63,7 @@ func (c Config) Log(kind string, message any, attributes map[string]any) error {
 		c.build.Color = false
 
 		c.file.Time = c.build.Time
+		c.file.Monthly = c.Monthly
 		c.file.Path = c.Path
 
 		log := c.build.Log()
