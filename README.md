@@ -23,7 +23,8 @@ c := proto.Config{
     Information:    true, 
     Convert: &map[string]string{
         "error": "purple",
-    },
+    }, 
+    Monthly:	    false,
     CommandLine:    false,
     File:           true,
     Path:           "/var/log/proto",

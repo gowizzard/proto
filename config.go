@@ -9,6 +9,7 @@ import (
 type Config struct {
 	Information bool
 	Convert     *map[string]string
+	Monthly     bool
 	CommandLine bool
 	File        bool
 	Path        string

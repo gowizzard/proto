@@ -6,7 +6,8 @@ import (
 
 // Config is to save essential data for file package
 type Config struct {
-	Time time.Time
-	Path string
-	Name string
+	Time    time.Time
+	Monthly bool
+	Path    string
+	Name    string
 }

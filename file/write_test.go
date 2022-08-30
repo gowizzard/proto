@@ -13,9 +13,10 @@ import (
 func TestWrite(t *testing.T) {
 
 	tests := []struct {
-		Time time.Time
-		Path string
-		Log  []byte
+		Time    time.Time
+		Monthly bool
+		Path    string
+		Log     []byte
 	}{
 		{
 			Time: time.Now(),
@@ -27,13 +28,20 @@ func TestWrite(t *testing.T) {
 			Path: os.TempDir(),
 			Log:  []byte("This the second test log."),
 		},
+		{
+			Time:    time.Now(),
+			Monthly: true,
+			Path:    os.TempDir(),
+			Log:     []byte("This the third test log."),
+		},
 	}
 
 	for _, value := range tests {
 
 		c := file.Config{
-			Time: value.Time,
-			Path: value.Path,
+			Time:    value.Time,
+			Monthly: value.Monthly,
+			Path:    value.Path,
 		}
 
 		err := c.Write(value.Log)
@@ -41,8 +49,14 @@ func TestWrite(t *testing.T) {
 			t.Fatal(err)
 		}
 
-		path := filepath.Join(c.Path, value.Time.Format("2006-01"))
-		name := value.Time.Format("2006-01-02") + ".log"
+		var path, name string
+		if value.Monthly {
+			path = filepath.Join(c.Path)
+			name = value.Time.Format("2006-01") + ".log"
+		} else {
+			path = filepath.Join(c.Path, value.Time.Format("2006-01"))
+			name = value.Time.Format("2006-01-02") + ".log"
+		}
 		path = filepath.Join(path, name)
 
 		read, err := os.ReadFile(path)
