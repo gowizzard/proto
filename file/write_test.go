@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package file_test
 
 import (
@@ -8,8 +12,8 @@ import (
 	"time"
 )
 
-// TestWrite is to test the write function
-// With table driven tests and temporary directory for file testing
+// TestWrite is to test the write function with table
+// driven tests and temporary directory for file testing.
 func TestWrite(t *testing.T) {
 
 	tests := []struct {

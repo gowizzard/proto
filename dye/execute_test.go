@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package dye_test
 
 import (
@@ -5,8 +9,8 @@ import (
 	"testing"
 )
 
-// TestExecute is to test the dye execute function
-// We test the execute function via table driven tests
+// TestExecute is to test the dye execute function. We
+// test the execute function via table driven tests.
 func TestExecute(t *testing.T) {
 
 	tests := []struct {

@@ -1,14 +1,18 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package dye
 
 import "fmt"
 
-// start, reset are to generate the color code
+// start, reset are to generate the color code.
 const (
 	start = "\033["
 	reset = "\033[0m"
 )
 
-// color is to map the color name to the code
+// color is to map the color name to the code.
 var (
 	color = map[string]string{
 		"red":    "31m",
@@ -20,7 +24,7 @@ var (
 	}
 )
 
-// Execute is to dye the text and return it as byte slice
+// Execute is to dye the text and return it as byte slice.
 func (c Config) Execute(text string) []byte {
 
 	c.Build = fmt.Append(c.Build, start)
