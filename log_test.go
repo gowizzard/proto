@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package proto_test
 
 import (
@@ -6,8 +10,8 @@ import (
 	"testing"
 )
 
-// TestLog is to test the logging function
-// With table driven testing and temporary directory for file testing
+// TestLog is to test the logging function. With
+// table driven testing and temporary directory for file testing.
 func TestLog(t *testing.T) {
 
 	tests := []struct {

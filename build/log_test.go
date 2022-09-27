@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package build_test
 
 import (
@@ -8,8 +12,8 @@ import (
 	"time"
 )
 
-// TestLog is to test the build log function
-// With table driven testing and logging of the returned values
+// TestLog is to test the build log function. With
+// table driven testing and logging of the returned values
 func TestLog(t *testing.T) {
 
 	tests := []struct {

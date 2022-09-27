@@ -1,3 +1,10 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
+// Package file is used to output the event logs in
+// a file, this file and also the folder structure
+// are created automatically.
 package file
 
 import (
@@ -6,8 +13,8 @@ import (
 	"path/filepath"
 )
 
-// Write is to save the log to log file
-// We check the file and red the data, if exists
+// Write is to save the log to log file. We
+// check the file and red the data, if exists.
 // After that we write the byte slice to the existing data
 func (c Config) Write(log []byte) error {
 
