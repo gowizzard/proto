@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package build
 
 import (
@@ -6,9 +10,10 @@ import (
 	"strings"
 )
 
-// Log is to build the log string
-// We build the log string with a kind, timestamp, message and attributes
-// To build the log for files, we remove the dye function for coloring the text
+// Log is to build the log string. We build the log
+// string with a kind, timestamp, message and attributes.
+// To build the log for files, we remove the dye
+// function for coloring the text.
 func (c Config) Log() []byte {
 
 	c.Kind = strings.ToUpper(c.Kind)

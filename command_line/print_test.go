@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package command_line_test
 
 import (
@@ -5,8 +9,8 @@ import (
 	"testing"
 )
 
-// TestPrint is to test the printing function
-// With table driven testing
+// TestPrint is to test the printing
+// function. With table driven testing.
 func TestPrint(t *testing.T) {
 
 	tests := []struct {

@@ -1,3 +1,7 @@
+// Copyright 2022 Jonas Kwiedor. All rights reserved.
+// Use of this source code is governed by the MIT
+// license that can be found in the LICENSE file.
+
 package proto
 
 import (
@@ -9,15 +13,16 @@ import (
 	"time"
 )
 
-// color, convert are to save the color name
-// And convert the kind name to a color name
+// color are to save the color name.
+// convert are to save the kind name to a color name.
 var (
 	color   string
 	convert = map[string]string{}
 )
 
-// Log ist to print the message to command line or file
-// You can use the config struct to filter data and change the functionality
+// Log ist to print the message to command line
+// or file. You can use the config struct to
+// filter data and change the functionality.
 func (c Config) Log(kind string, message any, attributes map[string]any) error {
 
 	c.build.Kind = kind
